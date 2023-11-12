@@ -1,0 +1,46 @@
+
+
+mat-sidenav {
+  background-color: #9438F5;
+  padding: 1rem;
+  transition: background-color 0.5s ease-in-out;
+
+  &.dark {
+    background-color: #333;
+  }
+}
+
+mat-sidenav-content {
+  overflow: hidden;
+}
+
+
+.sidenav {
+
+  .sidenav-menu {
+    min-height: 50vh;
+    flex: 1;
+
+    a {
+      border-radius: 50%;
+      padding: 0.5rem;
+
+      &:hover {
+        background-color: lighten(#9438F5, 10);
+      }
+    }
+
+  }
+}
+
+.toolbar {
+  background-color: #9438F5;
+  max-height: 40px;
+  transition: background-color 0.5s ease-in-out;
+
+  &.dark {
+    background-color: #333;
+  }
+}
+
+

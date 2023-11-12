@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'GLFIT';
+
+  public isDarkMode = true;
+
+  public toggleTheme(): void {
+    this.isDarkMode =  !this.isDarkMode;
+  }
+
 }

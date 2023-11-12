@@ -1,0 +1,81 @@
+<div class="d-flex flex-column p-5 gap-5">
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="shadow flex-grow-1">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [title]="chartOptions.title"
+        [labels]="chartOptions.labels"
+        [stroke]="chartOptions.stroke"
+        [subtitle]="chartOptions.subtitle"
+        [fill]="chartOptions.fill"
+        [yaxis]="chartOptions.yaxis"
+        [colors]="chartOptions.colors"
+      ></apx-chart>
+    </div>
+
+    <div class="shadow flex-grow-1">
+      <apx-chart
+        [series]="spark2.series"
+        [chart]="spark2.chart"
+        [xaxis]="spark2.xaxis"
+        [title]="spark2.title"
+        [labels]="spark2.labels"
+        [stroke]="spark2.stroke"
+        [subtitle]="spark2.subtitle"
+        [fill]="spark2.fill"
+        [yaxis]="spark2.yaxis"
+        [colors]="spark2.colors"
+      ></apx-chart>
+    </div>
+
+    <div class="shadow flex-grow-1">
+      <apx-chart
+        [series]="spark3.series"
+        [chart]="spark3.chart"
+        [xaxis]="spark3.xaxis"
+        [title]="spark3.title"
+        [labels]="spark3.labels"
+        [stroke]="spark3.stroke"
+        [subtitle]="spark3.subtitle"
+        [fill]="spark3.fill"
+        [yaxis]="spark3.yaxis"
+        [colors]="spark3.colors"
+      ></apx-chart>
+    </div>
+  </div>
+
+  <div class="d-flex gap-3 justify-content-center">
+    <div class="shadow flex-grow-1">
+      <apx-chart
+        [series]="optionsBar.series"
+        [chart]="optionsBar.chart"
+        [xaxis]="optionsBar.xaxis"
+        [title]="optionsBar.title"
+        [labels]="optionsBar.labels"
+        [stroke]="optionsBar.stroke"
+        [subtitle]="optionsBar.subtitle"
+        [fill]="optionsBar.fill"
+        [yaxis]="optionsBar.yaxis"
+        [colors]="optionsBar.colors"
+      ></apx-chart>
+    </div>
+
+    <div class="shadow flex-grow-1">
+      <apx-chart
+        [series]="optionsArea.series"
+        [chart]="optionsArea.chart"
+        [xaxis]="optionsArea.xaxis"
+        [title]="optionsArea.title"
+        [labels]="optionsArea.labels"
+        [stroke]="optionsArea.stroke"
+        [subtitle]="optionsArea.subtitle"
+        [fill]="optionsArea.fill"
+        [yaxis]="optionsArea.yaxis"
+        [colors]="optionsArea.colors"
+        [tooltip]="optionsArea.tooltip"
+      ></apx-chart>
+    </div>
+  </div>
+</div>

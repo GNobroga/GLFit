@@ -7,6 +7,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [],
@@ -18,7 +21,9 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     MatTooltipModule,
     MatIconModule,
     MatDividerModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    MatMenuModule,
+    MatInputModule
   ],
 })
 export class SharedModule {}

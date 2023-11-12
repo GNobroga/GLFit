@@ -7,3 +7,16 @@
 html, body {
   height: 100%;
 }
+
+.moved {
+  animation: Move 0.8s linear forwards;
+}
+
+@keyframes Move {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    transform: initial;
+  }
+}

@@ -1,83 +1,116 @@
-<mat-sidenav-container>
-  <mat-sidenav
-    class="sidenav mat-elevation-z2 {{ isDarkMode ? 'dark' : '' }}"
-    #sidenav
-    [opened]="true"
-    [fixedInViewport]="true"
-    [mode]="'side'"
-  >
-    <div class="d-flex flex-column gap-5 h-100">
+<ng-container *ngIf="!isRouteAccount() else isNotRouteAccount">
+  <mat-sidenav-container>
+    <mat-sidenav
+      class="sidenav mat-elevation-z2 {{ isDarkMode ? 'dark' : '' }}"
+      #sidenav
+      [opened]="true"
+      [fixedInViewport]="true"
+      [mode]="'side'"
+    >
+      <div class="d-flex flex-column gap-5 h-100">
 
-      <div class="d-flex justify-content-center">
-        <img src="/assets/icons/logo.png" alt="" style="width: 32px;">
-        <mat-divider class="bg-white"></mat-divider>
+        <div class="d-flex justify-content-center">
+          <img src="/assets/icons/logo.png" alt="" style="width: 32px;">
+          <mat-divider class="bg-white"></mat-divider>
+        </div>
+
+        <div class="sidenav-menu d-flex flex-column justify-content-between">
+          <div class="d-flex flex-column gap-4">
+            <a routerLink="/dashboard" class="text-white fs-4 d-flex justify-content-center">
+              <i class="bi bi-house-door"></i>
+            </a>
+            <a href="#" class="text-white fs-4 d-flex justify-content-center">
+              <i class="bi bi-people"></i>
+            </a>
+            <a href="#" class="text-white fs-4 d-flex justify-content-center">
+              <img src="/assets/icons/workout.png" alt="">
+            </a>
+            <a href="#" class="text-white fs-4 d-flex justify-content-center">
+              <i class="bi bi-cart"></i>
+            </a>
+            <a href="#" class="text-white fs-4 d-flex justify-content-center">
+              <img src="/assets/icons/achivement.png" alt="">
+            </a>
+            <a href="#" class="text-white fs-4 d-flex justify-content-center">
+              <i class="bi bi-bar-chart"></i>
+            </a>
+          </div>
+          <div>
+            <a href="#" class="text-white fs-4 d-flex justify-content-center">
+              <i class="bi bi-gear-fill"></i>
+            </a>
+          </div>
+        </div>
+
       </div>
+      <!-- <mat-divider></mat-divider> -->
+      <!-- <mat-nav-list>
+        <a *ngFor="let item of items_menu" mat-list-item
+        [routerLink]="item.link" routerLinkActive="active">
+          <mat-icon fontSet="fa" [fontIcon]="item.icon"></mat-icon>
+          <span>{{item.label}}</span>
+        </a>
+      </mat-nav-list> -->
+    </mat-sidenav>
 
-      <div class="sidenav-menu d-flex flex-column justify-content-between">
-        <div class="d-flex flex-column gap-4">
-          <a href="#" class="text-white fs-4 d-flex justify-content-center">
-            <i class="bi bi-house-door"></i>
-          </a>
-          <a href="#" class="text-white fs-4 d-flex justify-content-center">
-            <i class="bi bi-people"></i>
-          </a>
-          <a href="#" class="text-white fs-4 d-flex justify-content-center">
-            <img src="/assets/icons/workout.png" alt="">
-          </a>
-          <a href="#" class="text-white fs-4 d-flex justify-content-center">
-            <i class="bi bi-cart"></i>
-          </a>
-          <a href="#" class="text-white fs-4 d-flex justify-content-center">
-            <img src="/assets/icons/achivement.png" alt="">
-          </a>
-          <a href="#" class="text-white fs-4 d-flex justify-content-center">
-            <i class="bi bi-bar-chart"></i>
-          </a>
-        </div>
-        <div>
-          <a href="#" class="text-white fs-4 d-flex justify-content-center">
-            <i class="bi bi-gear-fill"></i>
-          </a>
-        </div>
-      </div>
+    <mat-sidenav-content class="sidenav-content">
+      <mat-toolbar class="toolbar  {{ isDarkMode ? 'dark' : '' }}" color="primary">
+        <mat-toolbar-row>
+          <div>
+              <button
+                matTooltip="{{sidenav.opened ? 'Fechar menu' : 'abrir menu'}}"
+                matTooltipPosition="right"
+                mat-icon-button
+                class="text-white"
+                (click)="sidenav.toggle()"
+              >
+              <mat-icon>
+                {{sidenav.opened ? 'close' : 'menu'}}
+              </mat-icon>
+            </button>
+            <div class="content-center d-flex  align-items-center">
+              <button class="moon" mat-icon-button (click)="toggleTheme()">
+                <i class="bi bi-moon-stars-fill"></i>
+              </button>
+              <mat-menu #beforeMenu="matMenu">
+                <!-- <a *ngFor="let item of items_menu" mat-menu-item
+                  [routerLink]="item.link" routerLinkActive="active">
+                <mat-icon fontSet="fa" [fontIcon]="item.icon"></mat-icon>
+                <span>{{item.label}}</span>
+              </a> -->
+              </mat-menu>
+              <div>
+                <button mat-button [matMenuTriggerFor]="menu">
+                  <mat-icon class="space-right-icon">account_circle</mat-icon>
+                  <span>Gabriel</span>
+                  <mat-icon>keyboard_arrow_down</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <a routerLink="/users/myProfile" mat-menu-item>
+                    <mat-icon>person</mat-icon>
+                    <span>Perfil</span>
+                  </a>
+                  <mat-divider></mat-divider>
+                  <a routerLink="/account/login" mat-menu-item>
+                    <mat-icon>logout</mat-icon>
+                    <span>Sign out</span>
+                  </a>
+                </mat-menu>
+              </div>
+            </div>
+          </div>
+        </mat-toolbar-row>
 
-    </div>
-    <!-- <mat-divider></mat-divider> -->
-    <!-- <mat-nav-list>
-      <a *ngFor="let item of items_menu" mat-list-item
-      [routerLink]="item.link" routerLinkActive="active">
-        <mat-icon fontSet="fa" [fontIcon]="item.icon"></mat-icon>
-        <span>{{item.label}}</span>
-      </a>
-    </mat-nav-list> -->
-  </mat-sidenav>
+      </mat-toolbar>
 
-  <mat-sidenav-content>
-    <mat-toolbar class="toolbar {{ isDarkMode ? 'dark' : '' }}" color="primary">
-      <mat-toolbar-row>
-        <div class="d-flex justify-content-between align-items-center w-100">
-            <button
-              matTooltip="{{sidenav.opened ? 'Fechar menu' : 'abrir menu'}}"
-              matTooltipPosition="right"
-              mat-icon-button
-              class="text-white"
-              (click)="sidenav.toggle()"
-            >
-            <mat-icon>
-              {{sidenav.opened ? 'close' : 'menu'}}
-            </mat-icon>
-          </button>
-          <button mat-icon-button (click)="toggleTheme()">
-            <i class="bi bi-moon-stars-fill"></i>
-          </button>
-        </div>
-      </mat-toolbar-row>
-      <mat-toolbar-row class="toolbar-submenu-title">
-        <!-- <span *ngIf="!popText">{{menuName}}</span> -->
-      </mat-toolbar-row>
-    </mat-toolbar>
+      <router-outlet></router-outlet>
 
-    <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
-  </mat-sidenav-content>
-</mat-sidenav-container>
+</ng-container>
+
+
+<ng-template #isNotRouteAccount>
+  <router-outlet></router-outlet>
+</ng-template>
